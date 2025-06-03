@@ -4,11 +4,25 @@
     <meta charset="utf-8">
     <title>Zoom Meeting SDK Sample JavaScript</title>
 
-  <!-- For Client View -->
-  <link type="text/css" rel="stylesheet" href="https://source.zoom.us/2.13.0/css/bootstrap.css" />
-  <link type="text/css" rel="stylesheet" href="https://source.zoom.us/2.13.0/css/react-select.css" />
+    <!-- For Client View -->
+    <link type="text/css" rel="stylesheet" href="../node_modules/@zoom/meetingsdk/dist/css/bootstrap.css" />
+    <link type="text/css" rel="stylesheet" href="../node_modules/@zoom/meetingsdk/dist/css/react-select.css" />
 
-    <link rel="stylesheet" href="styles.css">
+    <!-- For Component View -->
+    <link type="text/css" rel="stylesheet" href="styles.css" />
+
+    <!-- Website CSS style -->
+    <link type="text/css" rel="stylesheet" href="styles.css" />
+
+    <!-- Load vendor libraries first -->
+    <script src="../node_modules/@zoom/meetingsdk/dist/lib/vendor/react.min.js"></script>
+    <script src="../node_modules/@zoom/meetingsdk/dist/lib/vendor/react-dom.min.js"></script>
+    <script src="../node_modules/@zoom/meetingsdk/dist/lib/vendor/redux.min.js"></script>
+    <script src="../node_modules/@zoom/meetingsdk/dist/lib/vendor/redux-thunk.min.js"></script>
+    <script src="../node_modules/@zoom/meetingsdk/dist/lib/vendor/lodash.min.js"></script>
+    
+    <!-- Load main Zoom SDK from local npm package -->
+    <script src="../node_modules/@zoom/meetingsdk/dist/zoom-meeting-3.13.2.min.js"></script>
 
     <!-- Origin Trials to enable Gallery View in Chrome/Edge -->
     <!-- More Info: https://marketplace.zoom.us/docs/sdk/overview/improve-performance -->
@@ -18,7 +32,7 @@
   <body>
 
     <main>
-      <h1>Zoom Meeting SDK Sample JavaScript</h1>
+      <h1>Zoom Meeting SDK Bot</h1>
 
       <!-- For Component View -->
       <div id="meetingSDKElement">
@@ -27,25 +41,12 @@
 
       <button id="join_meeting" onClick="getSignature()">Join Meeting</button>
 
-    
-
     </main>
 
-    <!-- For Component and Client View -->
-    <script src="https://source.zoom.us/2.13.0/lib/vendor/react.min.js"></script>
-    <script src="https://source.zoom.us/2.13.0/lib/vendor/react-dom.min.js"></script>
-    <script src="https://source.zoom.us/2.13.0/lib/vendor/redux.min.js"></script>
-    <script src="https://source.zoom.us/2.13.0/lib/vendor/redux-thunk.min.js"></script>
-    <script src="https://source.zoom.us/2.13.0/lib/vendor/lodash.min.js"></script>
+    <div id="zmmtg-root"></div>
 
-    <!-- For Client View -->
-    <script src="https://source.zoom.us/zoom-meeting-2.13.0.min.js"></script>
+    <!-- Load our application script after SDK is loaded -->
     <script type="text/javascript" src="client-view.js"></script>
-
-
-    <!-- For Component View -->
-    <!-- <script src="https://source.zoom.us/2.13.0/zoom-meeting-embedded-2.13.0.min.js"></script> -->
-    <!-- <script type="text/javascript" src="component-view.js"></script> -->
 
   </body>
 </html>

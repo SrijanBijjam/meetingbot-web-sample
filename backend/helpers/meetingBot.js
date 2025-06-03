@@ -12,9 +12,9 @@ async function clickJoinMeetingButton() {
   });
   const page = await browser.newPage();
 
-  await page.goto("Enter Local Development URL or Site", {
+  // Navigate to the frontend served by the main bot application
+  await page.goto("http://localhost:30015", {
     waitUntil: "load",
-
     timeout: 0,
   });
 

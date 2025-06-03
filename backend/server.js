@@ -10,7 +10,13 @@ const port = process.env.PORT || 30015;
 
 app.use(cors());
 app.use(express.json());
+
+// Serve static files from the frontend directory
+app.use(express.static(path.join(__dirname, "../frontend")));
 app.use(express.static(path.join(__dirname, "public")));
+
+// Serve node_modules for Zoom SDK
+app.use('/node_modules', express.static(path.join(__dirname, "../node_modules")));
 
 // Error handling middleware
 app.use(errorHandler);
@@ -30,6 +36,11 @@ app.use((req, res, next) => {
 });
 
 console.log(__dirname);
+
+// Main route to serve the frontend
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/index.html"));
+});
 
 app.get("/websocket", async (req, res) => {
   try {
